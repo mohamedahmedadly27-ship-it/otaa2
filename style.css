@@ -398,3 +398,24 @@ html,body{overflow-x:hidden;}
   .shape-scroll{grid-template-columns:repeat(2,1fr);}
   .pgrid{grid-template-columns:1fr 1fr;}
 }
+
+/* ===== Payment method box ===== */
+.payment-box{
+  margin-top:16px;padding:18px;background:#fff;border-radius:8px;border:1px dashed rgba(36,28,25,.18);
+}
+.payment-box .pay-title{
+  display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:10px;
+}
+.payment-box .pay-title .dot{width:8px;height:8px;border-radius:50%;background:var(--bronze);}
+.payment-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:var(--ivory-2);padding:12px 14px;border-radius:6px;margin-bottom:10px;
+}
+.payment-row .pay-label{font-size:12.5px;color:var(--ink-2);}
+.payment-row .pay-number{font-size:16px;font-weight:700;color:var(--ink);letter-spacing:.5px;direction:ltr;display:inline-block;}
+.payment-row .copy-btn{
+  background:var(--ink);color:var(--ivory);border:none;border-radius:5px;padding:6px 12px;font-size:12px;cursor:pointer;
+  transition:all .2s;flex:none;
+}
+.payment-row .copy-btn:hover{background:var(--ink-2);}
+.payment-note{font-size:12px;color:var(--ink-2);opacity:.8;line-height:1.6;}
