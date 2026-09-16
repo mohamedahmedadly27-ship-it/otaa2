@@ -61,7 +61,10 @@
 <section class="product-view">
   <div class="wrap product-grid">
     <div>
-      <div class="gallery-main"><img id="mainImg" src="images/shorts-1.jpg" alt="شورت الشد الكامل"></div>
+      <div class="gallery-main"><div class="price-badge multi">
+        <div class="row"><span class="num">500</span><span class="cur">جنيه</span><span class="lbl">بدون فتحة</span></div>
+        <div class="row"><span class="num">550</span><span class="cur">جنيه</span><span class="lbl">بفتحة تواليت</span></div>
+      </div><img id="mainImg" src="images/shorts-1.jpg" alt="شورت الشد الكامل"></div>
       <div class="gallery-thumbs">
         <img src="images/shorts-1.jpg" class="active" onclick="document.getElementById('mainImg').src=this.src;document.querySelectorAll('.gallery-thumbs img').forEach(x=>x.classList.remove('active'));this.classList.add('active');">
 <img src="images/shorts-2.jpg" class="" onclick="document.getElementById('mainImg').src=this.src;document.querySelectorAll('.gallery-thumbs img').forEach(x=>x.classList.remove('active'));this.classList.add('active');">
