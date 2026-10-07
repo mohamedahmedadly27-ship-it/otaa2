@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إتمام الطلب | CORSET FASHION Plus</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 40px;
+}
+@media (max-width: 968px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+}
+.checkout-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.form-section {
+  margin-bottom: 30px;
+}
+.form-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: var(--ink);
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e3db;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.payment-options {
+  display: grid;
+  gap: 10px;
+}
+.payment-option {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #e5e3db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.payment-option:hover {
+  border-color: #c9a55b;
+}
+.payment-option input[type="radio"] {
+  width: auto;
+  margin-left: 10px;
+}
+.payment-option.selected {
+  border-color: #c9a55b;
+  background: #faf9f5;
+}
+.cart-summary {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+.cart-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e5e3db;
+}
+.cart-item:last-child {
+  border-bottom: none;
+}
+.cart-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.cart-item-info {
+  flex: 1;
+}
+.cart-item-name {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.cart-item-variant {
+  font-size: 13px;
+  color: var(--ink-2);
+  margin-bottom: 5px;
+}
+.cart-item-qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #e5e3db;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qty-btn:hover {
+  background: #faf9f5;
+}
+.cart-item-price {
+  font-weight: 600;
+  color: #c9a55b;
+}
+.cart-totals {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #e5e3db;
+}
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.cart-total-row.final {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e5e3db;
+}
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.submit-btn:hover {
+  background: #20BA5A;
+}
+.variant-select {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.variant-btn {
+  padding: 8px 16px;
+  border: 2px solid #e5e3db;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.variant-btn:hover {
+  border-color: #c9a55b;
+}
+.variant-btn.selected {
+  border-color: #c9a55b;
+  background: #faf9f5;
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <span class="brand-en">CORSET <em>FASHION</em></span>
+      <span class="plus-tag">PLUS</span>
+    </a>
+    <nav class="links">
+      <a href="index.html">الرئيسية</a>
+      <a href="shorts.html">شورت عادي</a>
+      <a href="top.html">توب حريمي المتكامل</a>
+      <a href="belt.html">حزام بطن</a>
+      <a href="vest.html">مشد شورت بكورسيه</a>
+      <a href="sleeves.html">مشد كامل كولومبي</a>
+      <a href="shorts-2.html">مشد كامل مفتوح</a>
+      <a href="belt-shorts.html">مشد كامل مقفول</a>
+      <a href="curvy.html">مشد كيرفي كبش</a>
+    </nav>
+    <button class="menu-btn" onclick="document.getElementById('mobileMenu').classList.add('open')">☰</button>
+  </div>
+</header>
+<div id="mobileMenu">
+  <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')">×</button>
+  <a href="index.html">الرئيسية</a>
+  <a href="shorts.html">شورت عادي</a>
+  <a href="top.html">توب حريمي المتكامل</a>
+  <a href="belt.html">حزام بطن</a>
+  <a href="vest.html">مشد شورت بكورسيه</a>
+  <a href="sleeves.html">مشد كامل كولومبي</a>
+  <a href="shorts-2.html">مشد كامل مفتوح</a>
+  <a href="belt-shorts.html">مشد كامل مقفول</a>
+  <a href="curvy.html">مشد كيرفي كبش</a>
+</div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>إتمام الطلب</h1>
+    <div class="crumbs"><a href="index.html">الرئيسية</a> / <span>إتمام الطلب</span></div>
+  </div>
+</section>
+
+<div class="checkout-container">
+  <div class="checkout-form">
+    <form id="checkoutForm">
+      <div class="form-section">
+        <h3>بيانات العميل</h3>
+        <div class="form-group">
+          <label>الاسم بالكامل *</label>
+          <input type="text" name="fullName" required placeholder="أدخلي اسمك الكامل">
+        </div>
+        <div class="form-group">
+          <label>رقم الموبايل *</label>
+          <input type="tel" name="phone" required placeholder="01xxxxxxxxx">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>عنوان الشحن</h3>
+        <div class="form-group">
+          <label>المحافظة *</label>
+          <select name="governorate" required>
+            <option value="">اختاري المحافظة</option>
+            <option value="القاهرة">القاهرة</option>
+            <option value="الجيزة">الجيزة</option>
+            <option value="الإسكندرية">الإسكندرية</option>
+            <option value="الدقهلية">الدقهلية</option>
+            <option value="الشرقية">الشرقية</option>
+            <option value="القليوبية">القليوبية</option>
+            <option value="المنوفية">المنوفية</option>
+            <option value="الغربية">الغربية</option>
+            <option value="البحيرة">البحيرة</option>
+            <option value="كفر الشيخ">كفر الشيخ</option>
+            <option value="دمياط">دمياط</option>
+            <option value="بورسعيد">بورسعيد</option>
+            <option value="الإسماعيلية">الإسماعيلية</option>
+            <option value="السويس">السويس</option>
+            <option value="شمال سيناء">شمال سيناء</option>
+            <option value="جنوب سيناء">جنوب سيناء</option>
+            <option value="البحر الأحمر">البحر الأحمر</option>
+            <option value="الفيوم">الفيوم</option>
+            <option value="بني سويف">بني سويف</option>
+            <option value="المنيا">المنيا</option>
+            <option value="أسيوط">أسيوط</option>
+            <option value="سوهاج">سوهاج</option>
+            <option value="قنا">قنا</option>
+            <option value="الأقصر">الأقصر</option>
+            <option value="أسوان">أسوان</option>
+            <option value="الوادي الجديد">الوادي الجديد</option>
+            <option value="مطروح">مطروح</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>العنوان بالتفصيل *</label>
+          <textarea name="address" required placeholder="المنطقة، الشارع، رقم المبنى، معلومات إضافية"></textarea>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>طريقة الدفع</h3>
+        <div class="payment-options">
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="cod" checked>
+            <div>
+              <div style="font-weight:600;">💵 الدفع عند الاستلام</div>
+              <div style="font-size:13px;color:var(--ink-2);margin-top:3px;">ادفعي لمندوب الشحن عند استلام الطلب</div>
+            </div>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="vodafone">
+            <div>
+              <div style="font-weight:600;">💳 فودافون كاش</div>
+              <div style="font-size:13px;color:var(--ink-2);margin-top:3px;">التحويل عبر فودافون كاش</div>
+            </div>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="instapay">
+            <div>
+              <div style="font-weight:600;">📱 إنستاباي</div>
+              <div style="font-size:13px;color:var(--ink-2);margin-top:3px;">الدفع الإلكتروني السريع</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>ملاحظات إضافية (اختياري)</h3>
+        <div class="form-group">
+          <textarea name="notes" placeholder="أي معلومات إضافية تحبي توصليها لنا"></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        <span>إرسال الطلب عبر واتساب</span>
+        <span>📱</span>
+      </button>
+    </form>
+  </div>
+
+  <div class="cart-summary">
+    <h3 style="margin-bottom:20px;">ملخص الطلب</h3>
+    <div id="cartItems"></div>
+    <div class="cart-totals">
+      <div class="cart-total-row">
+        <span>الإجمالي الفرعي</span>
+        <span id="subtotal">0 جنيه</span>
+      </div>
+      <div class="cart-total-row">
+        <span>الشحن</span>
+        <span id="shipping">يحسب لاحقاً</span>
+      </div>
+      <div class="cart-total-row final">
+        <span>المجموع الكلي</span>
+        <span id="total">0 جنيه</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>CORSET FASHION PLUS</h4>
+        <p>نظام قطع قابلة للفصل مصمم لدعم وشد الجسم بكل المقاسات، بجودة وراحة تدوم طول اليوم.</p>
+      </div>
+      <div>
+        <h4>المنتجات</h4>
+        <a href="shorts.html">شورت عادي</a>
+        <a href="top.html">توب حريمي المتكامل</a>
+        <a href="belt.html">حزام بطن</a>
+        <a href="vest.html">مشد شورت بكورسيه</a>
+        <a href="sleeves.html">مشد كامل كولومبي</a>
+        <a href="shorts-2.html">مشد كامل مفتوح</a>
+        <a href="belt-shorts.html">مشد كامل مقفول</a>
+        <a href="curvy.html">مشد كيرفي كبش</a>
+      </div>
+      <div>
+        <h4>تواصلي معنا</h4>
+        <a href="https://wa.me/201055365258">واتساب: 01055365258</a>
+        <a href="https://www.instagram.com/corsetfashionplus" target="_blank" rel="noopener">إنستجرام</a>
+        <a href="https://www.facebook.com/share/19PnfP7QKM/" target="_blank" rel="noopener">فيسبوك</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 CORSET FASHION Plus — جميع الحقوق محفوظة</div>
+  </div>
+</footer>
+
+<script>
+// المنتجات المتاحة
+const products = {
+  'shorts': { name: 'شورت عادي', price: 350, img: 'images/shorts-1.jpg', colors: ['أسود', 'بيج'], sizes: ['S', 'M', 'L', 'XL', 'XXL'] },
+  'top': { name: 'توب حريمي المتكامل', price: 400, img: 'images/top-complete-1.jpg', colors: ['أسود', 'أبيض'], sizes: ['S', 'M', 'L', 'XL'] },
+  'belt': { name: 'حزام بطن', price: 250, img: 'images/belt-1.jpg', colors: ['بيج', 'أسود'], sizes: ['Free Size'] },
+  'vest': { name: 'مشد شورت بكورسيه', price: 550, img: 'images/shorts-corset-1.jpg', colors: ['أسود'], sizes: ['M', 'L', 'XL', 'XXL'] },
+  'sleeves': { name: 'مشد كامل كولومبي', price: 550, img: 'images/colombian-1.jpg', colors: ['أسود', 'بيج'], sizes: ['M', 'L', 'XL'] },
+  'shorts-2': { name: 'مشد كامل مفتوح', price: 550, img: 'images/open-1.jpg', colors: ['أسود'], sizes: ['L', 'XL', 'XXL'] },
+  'belt-shorts': { name: 'مشد كامل مقفول', price: 450, img: 'images/closed-1.jpg', colors: ['أسود'], sizes: ['M', 'L', 'XL'] },
+  'curvy': { name: 'مشد كيرفي كبش', price: 500, img: 'images/curvy-1.jpg', colors: ['أسود', 'بيج'], sizes: ['L', 'XL', 'XXL', '3XL'] }
+};
+
+// سلة المشتريات
+let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+// عرض المنتجات في السلة
+function displayCart() {
+  const cartItemsEl = document.getElementById('cartItems');
+  if (cart.length === 0) {
+    cartItemsEl.innerHTML = '<p style="text-align:center;color:var(--ink-2);padding:40px 0;">السلة فارغة</p>';
+    document.getElementById('subtotal').textContent = '0 جنيه';
+    document.getElementById('total').textContent = '0 جنيه';
+    return;
+  }
+
+  let html = '';
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    const product = products[item.id];
+    if (!product) return;
+
+    const itemTotal = product.price * item.qty;
+    total += itemTotal;
+
+    html += `
+      <div class="cart-item">
+        <img src="${product.img}" alt="${product.name}" class="cart-item-img">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${product.name}</div>
+          <div class="cart-item-variant">اللون: ${item.color} | المقاس: ${item.size}</div>
+          <div class="cart-item-qty">
+            <button type="button" class="qty-btn" onclick="updateQty(${index}, -1)">−</button>
+            <span>${item.qty}</span>
+            <button type="button" class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+          </div>
+        </div>
+        <div class="cart-item-price">${itemTotal} جنيه</div>
+      </div>
+    `;
+  });
+
+  cartItemsEl.innerHTML = html;
+  document.getElementById('subtotal').textContent = total + ' جنيه';
+  document.getElementById('total').textContent = total + ' جنيه';
+}
+
+// تحديث الكمية
+function updateQty(index, change) {
+  cart[index].qty += change;
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  displayCart();
+}
+
+// تفعيل تحديد طريقة الدفع
+document.querySelectorAll('.payment-option').forEach(opt => {
+  opt.addEventListener('click', function() {
+    document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+    this.classList.add('selected');
+    this.querySelector('input').checked = true;
+  });
+});
+
+// إرسال الطلب
+document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  if (cart.length === 0) {
+    alert('السلة فارغة! من فضلك أضيفي منتجات أولاً.');
+    return;
+  }
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData);
+
+  // بناء رسالة واتساب
+  let message = '🛍️ *طلب جديد من CORSET FASHION Plus*\n\n';
+
+  message += '👤 *بيانات العميل:*\n';
+  message += `الاسم: ${data.fullName}\n`;
+  message += `الموبايل: ${data.phone}\n\n`;
+
+  message += '📍 *عنوان الشحن:*\n';
+  message += `المحافظة: ${data.governorate}\n`;
+  message += `العنوان: ${data.address}\n\n`;
+
+  message += '🛒 *تفاصيل الطلب:*\n';
+  cart.forEach(item => {
+    const product = products[item.id];
+    message += `• ${product.name}\n`;
+    message += `  اللون: ${item.color} | المقاس: ${item.size}\n`;
+    message += `  الكمية: ${item.qty} × ${product.price} = ${product.price * item.qty} جنيه\n\n`;
+  });
+
+  const total = cart.reduce((sum, item) => sum + (products[item.id].price * item.qty), 0);
+  message += `💰 *المجموع الكلي:* ${total} جنيه\n\n`;
+
+  const paymentMethods = {
+    'cod': '💵 الدفع عند الاستلام',
+    'vodafone': '💳 فودافون كاش',
+    'instapay': '📱 إنستاباي'
+  };
+  message += `💳 *طريقة الدفع:* ${paymentMethods[data.paymentMethod]}\n`;
+
+  if (data.notes) {
+    message += `\n📝 *ملاحظات:*\n${data.notes}`;
+  }
+
+  // إرسال على واتساب
+  const whatsappUrl = 'https://wa.me/201055365258?text=' + encodeURIComponent(message);
+  window.open(whatsappUrl, '_blank');
+
+  // مسح السلة بعد الإرسال
+  setTimeout(() => {
+    if (confirm('تم إرسال طلبك! هل تريدين مسح السلة؟')) {
+      localStorage.removeItem('cart');
+      cart = [];
+      displayCart();
+    }
+  }, 1000);
+});
+
+// عرض السلة عند تحميل الصفحة
+displayCart();
+</script>
+
+</body>
+</html>
