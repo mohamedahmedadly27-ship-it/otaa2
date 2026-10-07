@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إرسال طلب | CORSET FASHION Plus</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <span class="brand-en">CORSET <em>FASHION</em></span>
+      <span class="plus-tag">PLUS</span>
+    </a>
+    <nav class="links">
+      <a href="index.html">الرئيسية</a>
+    </nav>
+    <button class="menu-btn" onclick="document.getElementById('mobileMenu').classList.add('open')">☰</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>إرسال طلب جديد</h1>
+    <p>املئي البيانات وسيتم إرسال طلبك مباشرة</p>
+  </div>
+</section>
+
+<div class="wrap" style="max-width:600px;margin:40px auto;padding:0 20px;">
+  <form id="orderForm" style="background:#fff;padding:30px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+
+    <div class="form-group" style="margin-bottom:20px;">
+      <label style="display:block;margin-bottom:8px;font-weight:600;color:var(--ink);">الاسم بالكامل *</label>
+      <input type="text" id="name" required style="width:100%;padding:12px;border:1px solid #e5e3db;border-radius:6px;font-size:15px;">
+    </div>
+
+    <div class="form-group" style="margin-bottom:20px;">
+      <label style="display:block;margin-bottom:8px;font-weight:600;color:var(--ink);">رقم التليفون *</label>
+      <input type="tel" id="phone" required style="width:100%;padding:12px;border:1px solid #e5e3db;border-radius:6px;font-size:15px;" placeholder="01XXXXXXXXX">
+    </div>
+
+    <div class="form-group" style="margin-bottom:20px;">
+      <label style="display:block;margin-bottom:8px;font-weight:600;color:var(--ink);">المحافظة *</label>
+      <select id="governorate" required style="width:100%;padding:12px;border:1px solid #e5e3db;border-radius:6px;font-size:15px;">
+        <option value="">اختاري المحافظة</option>
+        <option value="القاهرة">القاهرة</option>
+        <option value="الجيزة">الجيزة</option>
+        <option value="الإسكندرية">الإسكندرية</option>
+        <option value="الشرقية">الشرقية</option>
+        <option value="الدقهلية">الدقهلية</option>
+        <option value="القليوبية">القليوبية</option>
+        <option value="أخرى">أخرى</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="margin-bottom:20px;">
+      <label style="display:block;margin-bottom:8px;font-weight:600;color:var(--ink);">العنوان بالتفصيل *</label>
+      <textarea id="address" required rows="3" style="width:100%;padding:12px;border:1px solid #e5e3db;border-radius:6px;font-size:15px;font-family:inherit;" placeholder="المنطقة، الشارع، رقم المبنى..."></textarea>
+    </div>
+
+    <div class="form-group" style="margin-bottom:20px;">
+      <label style="display:block;margin-bottom:8px;font-weight:600;color:var(--ink);">المنتج *</label>
+      <select id="product" required style="width:100%;padding:12px;border:1px solid #e5e3db;border-radius:6px;font-size:15px;">
+        <option value="">اختاري المنتج</option>
+        <option value="شورت عادي - 350 جنيه">شورت عادي - 350 جنيه</option>
+        <option value="توب حريمي المتكامل - 400 جنيه">توب حريمي المتكامل - 400 جنيه</option>
+        <option value="حزام بطن - 250 جنيه">حزام بطن - 250 جنيه</option>
+        <option value="مشد شورت بكورسيه - 550 جنيه">مشد شورت بكورسيه - 550 جنيه</option>
+        <option value="مشد كامل كولومبي - 550 جنيه">مشد كامل كولومبي - 550 جنيه</option>
+        <option value="مشد كامل مفتوح - 550 جنيه">مشد كامل مفتوح - 550 جنيه</option>
+        <option value="مشد كامل مقفول - 450 جنيه">مشد كامل مقفول - 450 جنيه</option>
+        <option value="مشد كيرفي كبش - 500 جنيه">مشد كيرفي كبش - 500 جنيه</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="margin-bottom:20px;">
+      <label style="display:block;margin-bottom:8px;font-weight:600;color:var(--ink);">المقاس *</label>
+      <select id="size" required style="width:100%;padding:12px;border:1px solid #e5e3db;border-radius:6px;font-size:15px;">
+        <option value="">اختاري المقاس</option>
+        <option value="Small">Small</option>
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="margin-bottom:20px;">
+      <label style="display:block;margin-bottom:12px;font-weight:600;color:var(--ink);">طريقة الدفع *</label>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <label style="display:flex;align-items:center;padding:15px;border:2px solid #e5e3db;border-radius:8px;cursor:pointer;transition:all .2s;" class="payment-option">
+          <input type="radio" name="payment" value="الدفع عند الاستلام" required style="margin-left:12px;width:18px;height:18px;">
+          <div>
+            <div style="font-weight:600;color:var(--ink);margin-bottom:3px;">💵 الدفع عند الاستلام</div>
+            <div style="font-size:13px;color:var(--ink-2);">ادفعي لمندوب الشحن عند استلام الطلب</div>
+          </div>
+        </label>
+        <label style="display:flex;align-items:center;padding:15px;border:2px solid #e5e3db;border-radius:8px;cursor:pointer;transition:all .2s;" class="payment-option">
+          <input type="radio" name="payment" value="فودافون كاش" style="margin-left:12px;width:18px;height:18px;">
+          <div>
+            <div style="font-weight:600;color:var(--ink);margin-bottom:3px;">💳 فودافون كاش</div>
+            <div style="font-size:13px;color:var(--ink-2);">التحويل عبر فودافون كاش</div>
+          </div>
+        </label>
+        <label style="display:flex;align-items:center;padding:15px;border:2px solid #e5e3db;border-radius:8px;cursor:pointer;transition:all .2s;" class="payment-option">
+          <input type="radio" name="payment" value="إنستاباي" style="margin-left:12px;width:18px;height:18px;">
+          <div>
+            <div style="font-weight:600;color:var(--ink);margin-bottom:3px;">📱 إنستاباي</div>
+            <div style="font-size:13px;color:var(--ink-2);">الدفع الإلكتروني السريع والآمن</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:20px;">
+      <label style="display:block;margin-bottom:8px;font-weight:600;color:var(--ink);">ملاحظات (اختياري)</label>
+      <textarea id="notes" rows="2" style="width:100%;padding:12px;border:1px solid #e5e3db;border-radius:6px;font-size:15px;font-family:inherit;" placeholder="أي تفاصيل إضافية..."></textarea>
+    </div>
+
+    <button type="submit" style="width:100%;background:#25D366;color:#fff;padding:15px;border:none;border-radius:6px;font-size:16px;font-weight:600;cursor:pointer;">
+      📲 إرسال الطلب
+    </button>
+
+    <div id="status" style="margin-top:15px;text-align:center;font-size:14px;"></div>
+  </form>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom" style="padding:30px 0;text-align:center;">© 2026 CORSET FASHION Plus — جميع الحقوق محفوظة</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('orderForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const statusDiv = document.getElementById('status');
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+
+  // تعطيل الزر
+  submitBtn.disabled = true;
+  submitBtn.textContent = '⏳ جاري الإرسال...';
+  statusDiv.innerHTML = '';
+
+  // جمع البيانات
+  const data = {
+    name: document.getElementById('name').value,
+    phone: document.getElementById('phone').value,
+    governorate: document.getElementById('governorate').value,
+    address: document.getElementById('address').value,
+    product: document.getElementById('product').value,
+    size: document.getElementById('size').value,
+    notes: document.getElementById('notes').value || 'لا توجد'
+  };
+
+  // تكوين الرسالة
+  const message = `
+🛍️ *طلب جديد من CORSET FASHION Plus*
+
+👤 *الاسم:* ${data.name}
+📱 *التليفون:* ${data.phone}
+📍 *المحافظة:* ${data.governorate}
+🏠 *العنوان:* ${data.address}
+
+🎀 *المنتج:* ${data.product}
+📏 *المقاس:* ${data.size}
+
+📝 *ملاحظات:* ${data.notes}
+
+⏰ *وقت الطلب:* ${new Date().toLocaleString('ar-EG')}
+  `.trim();
+
+  // استبدل هنا بالـ Token و Chat ID بتوعك
+  const BOT_TOKEN = '8833171800:AAFz2osa1Maz5hjuN95Q7yj73ffKZbjCgCs';
+  const CHAT_ID = '8962458939';
+
+  const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message,
+        parse_mode: 'Markdown'
+      })
+    });
+
+    const result = await response.json();
+
+    if (result.ok) {
+      statusDiv.innerHTML = '<div style="color:#25D366;font-weight:600;">✅ تم إرسال طلبك بنجاح!</div>';
+      e.target.reset();
+    } else {
+      throw new Error('فشل الإرسال');
+    }
+  } catch (error) {
+    statusDiv.innerHTML = '<div style="color:#e74c3c;font-weight:600;">❌ حدث خطأ، حاولي مرة أخرى</div>';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '📲 إرسال الطلب';
+  }
+});
+</script>
+
+</body>
+</html>

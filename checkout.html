@@ -335,7 +335,7 @@
       </div>
 
       <button type="submit" class="submit-btn">
-        <span>إرسال الطلب عبر واتساب</span>
+        <span>إتمام عملية الشراء</span>
         <span>📱</span>
       </button>
     </form>
@@ -512,18 +512,42 @@ document.getElementById('checkoutForm').addEventListener('submit', function(e) {
     message += `\n📝 *ملاحظات:*\n${data.notes}`;
   }
 
-  // إرسال على واتساب
-  const whatsappUrl = 'https://wa.me/201055365258?text=' + encodeURIComponent(message);
-  window.open(whatsappUrl, '_blank');
+  // إرسال على Telegram
+  const BOT_TOKEN = '8833171800:AAFz2osa1Maz5hjuN95Q7yj73ffKZbjCgCs';
+  const CHAT_ID = '8962458939';
+  const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-  // مسح السلة بعد الإرسال
-  setTimeout(() => {
-    if (confirm('تم إرسال طلبك! هل تريدين مسح السلة؟')) {
+  const submitBtn = this.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = '⏳ جاري إرسال الطلب...';
+
+  fetch(telegramUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: message,
+      parse_mode: 'Markdown'
+    })
+  })
+  .then(response => response.json())
+  .then(result => {
+    if (result.ok) {
+      alert('✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.');
       localStorage.removeItem('cart');
       cart = [];
       displayCart();
+    } else {
+      alert('❌ حدث خطأ في الإرسال، حاولي مرة أخرى');
     }
-  }, 1000);
+  })
+  .catch(error => {
+    alert('❌ حدث خطأ في الإرسال، تأكدي من الاتصال بالإنترنت');
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '📦 إتمام عملية الشراء';
+  });
 });
 
 // عرض السلة عند تحميل الصفحة
