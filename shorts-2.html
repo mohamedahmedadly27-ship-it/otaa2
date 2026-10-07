@@ -227,5 +227,22 @@ displaySizes();
 .variant-btn.selected { border-color: #c9a55b; background: #faf9f5; font-weight: 600; }
 </style>
 
+
+<script>
+/* ===== WhatsApp Click Tracking ===== */
+document.querySelectorAll('a[href*="wa.me"]').forEach(function(btn){
+  btn.addEventListener('click', function(e){
+    var productName = document.title.replace(' | CORSET FASHION Plus', '');
+    var buttonText = this.textContent.trim();
+    gtag('event', 'whatsapp_click', {
+      'event_category': 'engagement',
+      'event_label': productName,
+      'button_text': buttonText,
+      'page_url': window.location.pathname
+    });
+  });
+});
+</script>
+
 </body>
 </html>
