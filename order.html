@@ -78,11 +78,10 @@
       <label style="display:block;margin-bottom:8px;font-weight:600;color:var(--ink);">المقاس *</label>
       <select id="size" required style="width:100%;padding:12px;border:1px solid #e5e3db;border-radius:6px;font-size:15px;">
         <option value="">اختاري المقاس</option>
-        <option value="Small">Small</option>
-        <option value="Medium">Medium</option>
-        <option value="Large">Large</option>
+        <option value="L">L</option>
         <option value="XL">XL</option>
         <option value="XXL">XXL</option>
+        <option value="XXXL">XXXL</option>
       </select>
     </div>
 
@@ -204,6 +203,29 @@ document.getElementById('orderForm').addEventListener('submit', async function(e
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = '📲 إرسال الطلب';
+  }
+});
+
+// تغيير المقاسات حسب المنتج
+document.getElementById('product').addEventListener('change', function() {
+  const sizeSelect = document.getElementById('size');
+  const selectedProduct = this.value;
+
+  // إذا كان المنتج حزام بطن
+  if (selectedProduct.includes('حزام بطن')) {
+    sizeSelect.innerHTML = '<option value="مقاس واحد (Free Size)">مقاس واحد (Free Size)</option>';
+    sizeSelect.disabled = true;
+    sizeSelect.value = 'مقاس واحد (Free Size)';
+  } else {
+    // باقي المنتجات
+    sizeSelect.disabled = false;
+    sizeSelect.innerHTML = `
+      <option value="">اختاري المقاس</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+      <option value="XXL">XXL</option>
+      <option value="XXXL">XXXL</option>
+    `;
   }
 });
 </script>
